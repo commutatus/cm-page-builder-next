@@ -8,9 +8,7 @@ import {
 	REMOVE_CURRENT_ELEM
 } from '../redux/reducers/currentElemReducer'
 import MultiSelectDropdown from '../components/MultiSelectDropdown';
-import styles from "././../styles/page.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 
 export const PageDetails = ({
 	meta,
@@ -30,8 +28,8 @@ export const PageDetails = ({
 }) => {
 
 	return (
-		<div className={cx("page-root-container")}>
-			<div className={cx("page-container")} data-container-block="true">
+		<div className={classNames("page-root-container")}>
+			<div className={classNames("page-container")} data-container-block="true">
 				{
 					showEmoji &&
 					<EmojiIconContainer
@@ -48,7 +46,7 @@ export const PageDetails = ({
 				}
 				{
 					showPageInfo &&
-					<div className={cx("page-info")}>
+					<div className={classNames("page-info")}>
 						{
 							pageCategories &&
 							<MultiSelectDropdown
@@ -59,8 +57,8 @@ export const PageDetails = ({
 								component_type="categories"
 							/>
 						}
-						<div className={cx("separator-dot")}></div>
-						<div className={cx("hub-detail-wrapper")}>
+						<div className={classNames("separator-dot")}></div>
+						<div className={classNames("hub-detail-wrapper")}>
 							{
 								currentOffices &&
 								<Dropdown
@@ -75,18 +73,18 @@ export const PageDetails = ({
 							{
 								meta && meta.creator &&
 								<React.Fragment>
-									<div className={cx("separator-dot")}></div>
-									<div className={cx("current-user-detail")}>
+									<div className={classNames("separator-dot")}></div>
+									<div className={classNames("current-user-detail")}>
 										<img src={meta.creator && meta.creator.profile_photo} />
-										<p className={cx("user-name")}>{meta.creator.full_name}</p>
+										<p className={classNames("user-name")}>{meta.creator.full_name}</p>
 									</div>
 								</React.Fragment>
 							}
 							{
 								!isEditMode &&
 								<React.Fragment>
-									<div className={cx("separator-dot")}></div>
-									<div className={cx("date-updated")}>{meta ? moment(meta.created_at).format('DD MMM, YYYY') : ''}</div>
+									<div className={classNames("separator-dot")}></div>
+									<div className={classNames("date-updated")}>{meta ? moment(meta.created_at).format('DD MMM, YYYY') : ''}</div>
 								</React.Fragment>
 							}
 						</div>
@@ -94,7 +92,7 @@ export const PageDetails = ({
 				}
 
 
-				<div className={cx("component-list")} id="component-list" onMouseUp={onMouseUp} onKeyDown={onKeyDown}>
+				<div className={classNames("component-list")} id="component-list" onMouseUp={onMouseUp} onKeyDown={onKeyDown}>
 					{
 						pageComponents && pageComponents.map((component, index) => getPageComponent(component, index))
 					}

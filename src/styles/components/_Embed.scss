@@ -1,0 +1,48 @@
+@import "../imports";
+
+@mixin cm-embed {
+  .cm-embed {
+    width: 100%;
+
+    .embed-input-field {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 2px 0;
+      padding: 2px;
+      color: $light-text;
+      font-size: $t6-text;
+      cursor: pointer;
+      .embed-icon {
+        margin-right: 7px;
+      }
+      .embed-input {
+        width: 100%;
+        font-size: $t6-text;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        &::placeholder {
+          color: $light-text;
+          font-size: $t4-text;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    iframe {
+      border: none;
+    }
+
+    .edit {
+      margin: 5px 0;
+    }
+
+    .read {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+}

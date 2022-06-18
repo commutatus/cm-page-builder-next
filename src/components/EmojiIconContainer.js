@@ -1,15 +1,12 @@
 import React from 'react'
 import JSEMOJI from 'emoji-js';
-import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
 import { PermissionContext } from '../contexts/permission-context';
-import styles from "./../styles/components/Emoji.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 
-export class EmojiIconContainer extends React.Component{
+export class EmojiIconContainer extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       showPopup: false
@@ -20,43 +17,43 @@ export class EmojiIconContainer extends React.Component{
     this.jsemoji.use_sheet = true;
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.elem.innerHTML = this.jsemoji.replace_colons(this.props.emoji && this.props.emoji.colons || ':notebook_with_decorative_cover:')
   }
 
   onEmojiClick = (data, e) => {
     e.preventDefault()
     this.elem.innerHTML = this.jsemoji.replace_colons(data.colons)
-    this.props.handleUpdate(null, {...data}, 'emoji')
+    this.props.handleUpdate(null, { ...data }, 'emoji')
   }
 
   openEmojiPopup = (_e) => {
-    if(!this.state.showPopup){
-      this.setState({showPopup: true})
+    if (!this.state.showPopup) {
+      this.setState({ showPopup: true })
       document.addEventListener('click', this.closeEmojiPopup)
     }
   }
 
   closeEmojiPopup = (e) => {
-    if(this.rootNode && !this.rootNode.contains(e.target)){
-      this.setState({showPopup: false})
+    if (this.rootNode && !this.rootNode.contains(e.target)) {
+      this.setState({ showPopup: false })
       document.removeEventListener('click', this.closeEmojiPopup)
     }
   }
 
   render() {
-    let {showPopup} = this.state
-    return(
+    let { showPopup } = this.state
+    return (
       <PermissionContext.Consumer>
         {
-          value =>{
-            return(
+          value => {
+            return (
               <div
-                className={cx("cm-emoji-container", value.status.toLowerCase())}
+                className={classNames("cm-emoji-container", value.status.toLowerCase())}
                 onClick={value.status === 'Edit' ? this.openEmojiPopup : undefined}
                 ref={node => this.rootNode = node}
               >
-                <div style={{fontSize: '75px'}} ref={node => this.elem = node}></div>
+                <div style={{ fontSize: '75px' }} ref={node => this.elem = node}></div>
                 {
                   showPopup &&
                   <Picker set='apple' onClick={this.onEmojiClick} showPreview={false} />

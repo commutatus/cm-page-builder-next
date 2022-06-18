@@ -18,9 +18,7 @@ import DragHandle from './DragHandle';
 import { PermissionContext } from '../contexts/permission-context';
 import { setCursorToEnd } from '../utils/helpers'
 import { parse } from 'node-html-parser'
-import styles from "./../styles/components/AddComponent.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 
 //A higher order component for the generic components to handle there functionality.
 
@@ -298,7 +296,7 @@ class AddComponent extends React.Component {
     return (
       <div
         ref={node => this.elem = node}
-        className={cx("widget-container")}
+        className={classNames("widget-container")}
         data-block-id={this.props.id}
         style={this.handleInlineStyles(data.componentType)}
         {...allActions}
@@ -311,7 +309,7 @@ class AddComponent extends React.Component {
           classNames="cm-p-builder-fade"
           unmountOnExit
         >
-          <div className={cx("text-type-tools")}
+          <div className={classNames("text-type-tools")}
             data-block-type="component-select-div"
             style={{ display: showActionBtn && !['Divider', 'Upload', 'Code'].includes(data.componentType) ? 'flex' : 'none' }}
           >
@@ -319,7 +317,7 @@ class AddComponent extends React.Component {
               componentsToRender.map((type, index) => {
                 return (
                   <div data-type={type.name} key={index}>
-                    <i className={cx(type.icon)} />
+                    <i className={classNames(type.icon)} />
                   </div>
                 )
               })

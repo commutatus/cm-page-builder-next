@@ -17,9 +17,7 @@ import {
   setCurrentElem,
   removeCurrentElem,
 } from "../redux/reducers/currentElemReducer";
-import styles from "./../styles/page-container.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 import Dropzone from "react-dropzone";
 
 class PageContainer extends React.Component {
@@ -404,7 +402,7 @@ class PageContainer extends React.Component {
       >
         {({ getRootProps, getInputProps, isDragActive }) => (
           <div
-            className={cx("cm-page-builder")}
+            className={classNames("cm-page-builder")}
             style={isDragActive ? { pointerEvents: "none" } : {}}
             id="page-builder"
             {...getRootProps()}
@@ -451,7 +449,7 @@ class PageContainer extends React.Component {
               unmountOnExit
             >
               <div
-                className={cx("text-selection-tool")}
+                className={classNames("text-selection-tool")}
                 id="cm-text-edit-tooltip"
                 style={
                   actionDomRect
@@ -460,7 +458,7 @@ class PageContainer extends React.Component {
                 }
               >
                 <div
-                  className={cx({
+                  className={classNames({
                     "bold-tool-btn-active": activeFormatting.includes(`bold`),
                     "bold-tool-btn": !activeFormatting.includes(`bold`)
                   })}
@@ -474,32 +472,32 @@ class PageContainer extends React.Component {
                   B
                 </div>
                 <div
-                  className={cx({
+                  className={classNames({
                     "tool-btn-active": activeFormatting.includes(`italic`),
                     "tool-btn": !activeFormatting.includes(`italic`)
                   })}
                   data-action="italic"
                 >
-                  <i className={cx("cm-icon-italic")} data-action="italic" />
+                  <i className={classNames("cm-icon-italic")} data-action="italic" />
                 </div>
                 <div
-                  className={cx({
+                  className={classNames({
                     "tool-btn-active": activeFormatting.includes(`strikeThrough`),
                     "tool-btn": !activeFormatting.includes(`strikeThrough`)
                   })}
                   data-action="strikeThrough"
                 >
-                  <i className={cx("cm-icon-strikethrough")} data-action="strikeThrough" />
+                  <i className={classNames("cm-icon-strikethrough")} data-action="strikeThrough" />
                 </div>
                 <div
-                  className={cx({
+                  className={classNames({
                     "tool-btn-active": activeFormatting.includes(`createLink`),
                     "tool-btn": !activeFormatting.includes(`createLink`)
                   })}
                   data-action="createLink"
 
                 >
-                  <i className={cx("cm-icon-link")} data-action="createLink" />
+                  <i className={classNames("cm-icon-link")} data-action="createLink" />
                 </div>
                 {/* <div className="divider"></div>
 								<div className="tool-btn" onMouseDown={this.editComponent} data-type="Header1">

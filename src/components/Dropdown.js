@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 import { PermissionContext } from "../contexts/permission-context";
-import styles from "./../styles/components/Dropdown.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 
 export class Dropdown extends React.Component {
   constructor(props) {
@@ -63,7 +61,7 @@ export class Dropdown extends React.Component {
         {(value) => {
           return (
             <div
-              className={cx("dropdown-wrapper")}
+              className={classNames("dropdown-wrapper")}
               ref={(node) => (this.elem = node)}
             >
               <CSSTransition
@@ -73,7 +71,7 @@ export class Dropdown extends React.Component {
               >
                 <div>
                   <div
-                    className={cx({
+                    className={classNames({
                       "dropdown-input": isDropdownOpen,
                       "dropdown-value": !isDropdownOpen
                     })}
@@ -91,14 +89,14 @@ export class Dropdown extends React.Component {
                       />
                     ) : (
                       <div
-                        className={cx({
+                        className={classNames({
                           "value-text-edit": value.status === "Edit",
                           "value-text-read": value.status !== "Edit"
                         })}
                       >
                         <span>
                           <i
-                            className={cx({
+                            className={classNames({
                               "cm-hashtag": this.props.component_type === "category_id",
                               "cm-hub": this.props.component_type !== "category_id",
                             })}
@@ -113,7 +111,7 @@ export class Dropdown extends React.Component {
                     )}
                   </div>
                   {isDropdownOpen && (
-                    <div className={cx("dropdown-list-body")}>
+                    <div className={classNames("dropdown-list-body")}>
                       {options
                         .filter(
                           (option) =>
@@ -125,7 +123,7 @@ export class Dropdown extends React.Component {
                         .map((option, i) => (
                           <div
                             key={`dropdown-${option.id || i}`}
-                            className={cx("dropdown-item")}
+                            className={classNames("dropdown-item")}
                             onClick={(e) => this.handleClick(e, option)}
                           >
                             {option.name}

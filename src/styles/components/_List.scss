@@ -1,0 +1,39 @@
+@import '../imports';
+
+@mixin cm-list {
+    .cm-o-list {
+        width: 100%;
+        span {
+            align-self: flex-start;
+            margin-top: 9px;
+            color: $primary-color;
+            font-size: $t4-text;
+            margin-right: 5px;
+            font-family: 'Open Sans', sans-serif !important;
+            // margin-bottom: 5px;
+        }
+    }
+
+    .list-span-focus {
+        width: 100%;
+        span {
+            align-self: center;
+            color: $primary-color;
+            font-size: $t4-text;
+            margin-right: 5px;
+        }
+    }
+
+    .cm-u-list {
+        width: 100%;
+       .bulleted-dot {
+            align-self: flex-start;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+            padding: 3px;
+            background-color: $primary-color;
+            border-radius: 50%;
+       }
+    }
+}

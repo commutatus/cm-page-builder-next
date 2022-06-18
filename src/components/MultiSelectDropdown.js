@@ -5,9 +5,7 @@ import { PermissionContext } from '../contexts/permission-context';
 import { formatOptionsToMultiSelect } from '../utils/helpers';
 import { connect } from 'react-redux';
 import { removeCurrentElem } from '../redux/reducers/currentElemReducer'
-import styles from "./../styles/components/MultiSelectDropdown.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 
 class MultiSelectDropdown extends React.Component {
 
@@ -63,7 +61,7 @@ class MultiSelectDropdown extends React.Component {
 				{
 					value => {
 						return (
-							<div className={cx("multi-select-dropdown-container")} ref={(node) => this.elem = node}>
+							<div className={classNames("multi-select-dropdown-container")} ref={(node) => this.elem = node}>
 								<CSSTransition
 									in={isDropdownOpen}
 									timeout={300}
@@ -71,23 +69,23 @@ class MultiSelectDropdown extends React.Component {
 								>
 									<div>
 										<div
-											className={cx("dropdown-value")}
+											className={classNames("dropdown-value")}
 											onClick={value.status === 'Edit' ? this.toggleDropdown : undefined}
 										>
 											{
 												selectedOptions && selectedOptions.length ? selectedOptions.map((item) => {
 													return (
-														<div className={cx({
+														<div className={classNames({
 															'value-text-edit': value.status === 'Edit',
 															'value-text-read': value.status !== 'Edit',
 														})}>
-															<span><i className={cx("cm-hashtag")} /></span>
+															<span><i className={classNames("cm-hashtag")} /></span>
 															{item.option && item.option.name}
 														</div>
 													)
 												})
 													:
-													<div className={cx({
+													<div className={classNames({
 														'value-text-edit': value.status === 'Edit',
 														'value-text-read': value.status !== 'Edit',
 													})}>
@@ -96,29 +94,29 @@ class MultiSelectDropdown extends React.Component {
 											}
 											{
 												isDropdownOpen &&
-												<div className={cx("multi-select-dropdown-wrapper")}>
-													<div className={cx("multi-select-search-input-wrapper")}>
+												<div className={classNames("multi-select-dropdown-wrapper")}>
+													<div className={classNames("multi-select-search-input-wrapper")}>
 														<input
 															onChange={this.handleChange}
 															onClick={(e) => e.stopPropagation()}
 															data-id="cmSearchInput"
 															value={cmSearchInput}
-															className={cx("multi-select-dropdown-search")}
+															className={classNames("multi-select-dropdown-search")}
 															autoFocus
 															placeholder='Search categories'
 														/>
-														{!cmSearchInput && <span className={cx("search-icon")}>
+														{!cmSearchInput && <span className={classNames("search-icon")}>
 															<i className="cm cm-icon-search" />
 														</span>}
 													</div>
-													<div className={cx("multi-select-dropdown-list-body")}>
+													<div className={classNames("multi-select-dropdown-list-body")}>
 														{
 															options
 																.map((option, i) => {
 																	if (!cmSearchInput || (option.option.name.toLowerCase().includes(cmSearchInput.toLowerCase())))
 																		return (
-																			<div key={`dropdown-${option.option.id || i}`} className={cx("dropdown-item")} onClick={(e) => this.handleClick(e, i)}>
-																				<input checked={option.isSelected} type='checkbox' className={cx("dropdown-item-checkbox")} />
+																			<div key={`dropdown-${option.option.id || i}`} className={classNames("dropdown-item")} onClick={(e) => this.handleClick(e, i)}>
+																				<input checked={option.isSelected} type='checkbox' className={classNames("dropdown-item-checkbox")} />
 																				{option.option.name}
 																			</div>
 																		)

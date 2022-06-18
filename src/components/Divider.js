@@ -1,19 +1,15 @@
 import React from 'react'
 import { PermissionContext } from '../contexts/permission-context';
-import pageStyles from "../styles/page.module.css";
-import styles from "./../styles/components/Divider.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
-const cxPage = classNames.bind(pageStyles);
+import classNames from "classnames";
 
 export const Divider = () => {
   return (
     <PermissionContext.Consumer>
       {
         value =>
-          <div className={cxPage("component-section", value.status.toLowerCase())}>
-            <div className={cx("divider", value.status.toLowerCase())}>
-              <div className={cx("separator")}></div>
+          <div className={classNames("component-section", value.status.toLowerCase())}>
+            <div className={classNames("divider", value.status.toLowerCase())}>
+              <div className={classNames("separator")}></div>
             </div>
           </div>
 

@@ -1,0 +1,27 @@
+@import "../imports";
+
+@mixin cm-add-comp {
+  .widget-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    .text-type-tools {
+      display: flex;
+      position: absolute;
+      right: 5px;
+      div {
+        margin: 0 5px;
+        padding: 0 5px;
+        color: $primary-color;
+        opacity: 0.4;
+        font-size: $t4-text;
+        cursor: pointer;
+      }
+    }
+    // [contenteditable]:empty:focus ~ .text-type-tools{
+    //   display: 'flex';
+    // }
+  }
+}

@@ -6,11 +6,7 @@ import { getVideoUrl } from '../utils/helpers'
 import {
   updateComponent
 } from '../redux/reducers/appDataReducers'
-import styles from "./../styles/components/Embed.module.css"
-import pageStyles from "../styles/page.module.css";
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
-const cxPage = classNames.bind(pageStyles)
+import classNames from "classnames";
 
 class WrappedEmbed extends React.Component {
 
@@ -29,27 +25,27 @@ class WrappedEmbed extends React.Component {
     let { context } = this
     let isEdit = context.status === 'Edit'
     return (
-      <div className={cx(
-        cxPage("component-section"), "cm-embed", context.status.toLowerCase(), { 'hover-effect-none': content }
+      <div className={classNames(
+        classNames("component-section"), "cm-embed", context.status.toLowerCase(), { 'hover-effect-none': content }
       )}>
         {
           (content)
             ?
             <iframe
               title="video-frame"
-              className={cx(context.status.toLowerCase())}
+              className={classNames(context.status.toLowerCase())}
               width="100%"
               height="320px"
               src={content}
             />
             :
             isEdit &&
-            <div className={cx("embed-input-field")}>
-              <span className={cx("embed-icon")}><i className={cx("cm-video")} /></span>
+            <div className={classNames("embed-input-field")}>
+              <span className={classNames("embed-icon")}><i className={classNames("cm-video")} /></span>
               <input
                 data-root="true"
                 placeholder="Paste the URL from Vimeo or YouTube"
-                className={cx("embed-input")}
+                className={classNames("embed-input")}
                 onBlur={(e) => this.handleEmbed(e)}
               />
             </div>

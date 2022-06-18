@@ -1,1 +1,49 @@
+@import "~react-circular-progressbar/dist/styles.css";
+@import "~emoji-mart/css/emoji-mart.css";
 @import "./animations.scss";
+@import "./components/AddComponent.scss";
+@import "./components/ContentEditable.scss";
+@import "./components/Divider.scss";
+@import "./components/DragHandle.scss";
+@import "./components/Dropdown.scss";
+@import "./components/Embed.scss";
+@import "./components/Emoji.scss";
+@import "./components/Heading.scss";
+@import "./components/List.scss";
+@import "./components/MultiSelectDropdown.scss";
+@import "./components/Text.scss";
+@import "./components/Title.scss";
+@import "./components/Upload.scss";
+@import "./App.scss";
+@import "./Code.scss";
+@import "./Select.scss";
+@import "./imports.scss";
+@import "./page-container.scss";
+@import "./page.scss";
+
+.cm-page-builder {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif !important;
+  margin: 0;
+  padding-bottom: 50px;
+  min-height: 100vh;
+
+  @include cm-select;
+  @include cm-app;
+  @include cm-code;
+  @include cm-page-container;
+  @include cm-page;
+  @include cm-add-comp;
+  @include cm-content-editable;
+  @include cm-divider;
+  @include cm-drag-handle;
+  @include cm-dropdown;
+  @include cm-embed;
+  @include cm-emoji;
+  @include cm-header;
+  @include cm-list;
+  @include cm-multi-select-dropdown-container;
+  @include cm-text;
+  @include cm-title;
+  @include cm-upload;
+}

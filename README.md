@@ -1,4 +1,7 @@
 # CM Page Builder
+
+Now with Next.js support
+
 ### A Notion inspired page builder
 CM Page builder is a modern rich text component based page builder inspired from [Notion](https://www.notion.so/). This Component allows you to compose awesome, formatted text in your web application and supports uploading files, pictures, code snippets and even embedding videos.
 
@@ -11,7 +14,7 @@ CM Page builder is a modern rich text component based page builder inspired from
 ### Install from npm
 
 ```
-npm install -s cm-page-builder
+npm install -s @commutatus/cm-page-builder
 ```
 
 ### Adding custom icon fonts
@@ -22,7 +25,7 @@ For example: `<link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net
 ### Load CM Page Builder as a Module
 
 ```javascript
-import PageBuilder from 'cm-page-builder'
+import PageBuilder from '@commutatus/cm-page-builder'
 ```
 
 ### Initialization and Usage

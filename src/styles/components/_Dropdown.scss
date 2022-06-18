@@ -1,0 +1,65 @@
+@import '../imports';
+
+@mixin cm-dropdown {
+  .dropdown-wrapper {
+    position: relative;
+    .value-text-edit {
+      @include chip-style;
+      color: $primary-color;
+      font-size: $t4-text;
+      cursor: pointer;
+      span {
+        color: $blue;
+        margin-right: 5px;
+      }
+    }
+
+    .value-text-read {
+      color: $primary-color;
+      font-size: $t4-text;
+      span {
+        color: $blue;
+        margin-right: 5px;
+      }
+    }
+
+    .dropdown-input {
+      input {
+        width: 100%;
+        padding: 5px 2px;
+        color: $primary-color;
+        font-size: $t4-text;
+        border: 1px solid #D4D4D4;
+        box-sizing: border-box;
+        &:focus {
+          outline-color: $blue;
+        }
+      }
+    }
+
+    .dropdown-list-body {
+      position: absolute;
+      top: 33px;
+      left: 0;
+      right: 0;
+      padding: 0 5px;
+      max-height: 250px;
+      background-color: $white;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+      overflow-y: auto;
+      z-index: 10;
+      .dropdown-item {
+        margin: 5px 0;
+        padding: 7px 5px;
+        color: $primary-color;
+        font-family: "Open Sans";
+        font-size: $t4-text;
+        transition: background-color .2s linear;
+        cursor: pointer;
+        &:hover {
+          background-color: #F4F5F7;
+        }
+      }
+    }
+  }
+}

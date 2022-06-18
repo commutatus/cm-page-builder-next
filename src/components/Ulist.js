@@ -1,15 +1,10 @@
 import React from 'react'
 import ContentEditable from './ContentEditable'
 import withComponent from './withComponent'
-import styles from "./../styles/components/List.module.css"
-import classNames from "classnames/bind";
-const cxList = classNames.bind(styles);
-import stylesText from "./../styles/components/Text.module.css"
-const cxText = classNames.bind(stylesText);
 
 const WrappedUlist = (props) => {
   return (
-    <div className={cxList("cm-u-list")}>
+    <div className="cm-u-list">
       <ContentEditable
         {...props}
         html={props.html}
@@ -19,8 +14,7 @@ const WrappedUlist = (props) => {
         className="cm-text-block"
         id={props.id}
         data-component-type={'Ulist'}
-        listOrder={<span className={cxList("bulleted-dot")}></span>}
-        classGetter={cxText}
+        listOrder={<span className="bulleted-dot"></span>}
       />
     </div>
   )
