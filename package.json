@@ -1,6 +1,6 @@
 {
   "name": "@commutatus/cm-page-builder",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Page builder package like notion",
   "main": "lib/page/index.js",
   "files": [
@@ -66,7 +66,6 @@
     "webpack-node-externals": "^1.6.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
-
   },
   "peerDependencies": {
     "react": "^16.8.6",
