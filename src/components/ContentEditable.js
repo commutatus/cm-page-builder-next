@@ -10,13 +10,11 @@ import { PermissionContext } from '../contexts/permission-context';
 import {
   addNewComponent
 } from '../redux/reducers/appDataReducers'
-import {setCursorToEnd} from '../utils/helpers'
+import { setCursorToEnd } from '../utils/helpers'
 import { REGEX_FILTER_TAGS } from '../utils/constant'
-import styles from "./../styles/components/ContentEditable.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 
-class ContentEditable extends React.Component{
+class ContentEditable extends React.Component {
 
   constructor(props) {
     super(props)
@@ -24,11 +22,11 @@ class ContentEditable extends React.Component{
     ContentEditable.contextType = PermissionContext
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.handleFocusAndBlur()
   }
 
-  componentDidUpdate(oldProps, oldState){
+  componentDidUpdate(oldProps, oldState) {
     this.handleFocusAndBlur(oldProps, oldState)
   }
 
@@ -72,7 +70,7 @@ class ContentEditable extends React.Component{
   emitChange = (e) => {
     if (!this.props.componentType && e.target.innerHTML) {
       let content = e.target.innerHTML
-      if(this.props.id === `page-title` && e.target.innerText){
+      if (this.props.id === `page-title` && e.target.innerText) {
         content = e.target.innerText.replace(REGEX_FILTER_TAGS, "")
       }
       this.context.emitUpdate(null, { content }, 'updateTitle')
@@ -81,29 +79,29 @@ class ContentEditable extends React.Component{
 
   handleFocus = (e) => {
     e.persist()
-    if(!this.props.componentType)
+    if (!this.props.componentType)
       setCursorToEnd(e)
   }
 
   handleNewLine = (e) => {
-    if(e.key === 'Enter' && this.props.id === `page-title`) {
+    if (e.key === 'Enter' && this.props.id === `page-title`) {
       e.preventDefault()
       this.emitChange(e)
     }
   }
 
   handleMouseDown = (e) => {
-    if(e.target.nodeName === 'A'){
+    if (e.target.nodeName === 'A') {
       window.open(e.target.href)
     }
-    if(this.props.id === 'page-title'){
+    if (this.props.id === 'page-title') {
       this.props.setCurrentElem(this.props.id)
     }
   }
 
   render() {
-    const { placeholder, className, styles, listOrder, content, classGetter } = this.props
-    const {context} = this
+    const { placeholder, className, styles, listOrder, content } = this.props
+    const { context } = this
     const actions = {
       //onMouseUp: this.handleMouseUp,
       onBlur: this.emitChange,
@@ -112,17 +110,17 @@ class ContentEditable extends React.Component{
       onMouseDown: this.handleMouseDown,
       onKeyDown: this.handleNewLine,
     }
-    return(
-      <div className={cx("component-section", context.status.toLowerCase())}>
+    return (
+      <div className={classNames("component-section", context.status.toLowerCase())}>
         {listOrder}
         <div
           data-root="true"
           ref={node => this.elem = node}
-          className={classGetter(className, context.status.toLowerCase())}
+          className={classNames(className, context.status.toLowerCase())}
           styles={styles}
           contentEditable={context.status === 'Edit'}
           placeholder={content || context.status === 'Edit' ? placeholder : ''}
-          dangerouslySetInnerHTML={{__html: sanitizeHtml(content || '')}}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(content || '') }}
           data-gramm_editor="false"
           {...actions}
         />

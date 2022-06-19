@@ -1,7 +1,5 @@
 import React from 'react'
-import styles from "./../styles/components/Dropdown.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 import { CSSTransition } from 'react-transition-group';
 
 export class AutoCompleteDropdown extends React.Component {
@@ -45,14 +43,14 @@ export class AutoCompleteDropdown extends React.Component {
   render() {
     const { options, selectedOption, isDropdownOpen, cmSearchInput } = this.state
     return (
-      <div className={cx("dropdown-wrapper")} ref={(node) => this.elem = node}>
+      <div className={classNames("dropdown-wrapper")} ref={(node) => this.elem = node}>
         <CSSTransition
           in={isDropdownOpen}
           timeout={300}
           classNames="cm-p-builder-dropdown-fade"
         >
           <div>
-            <div className={cx({
+            <div className={classNames({
               'dropdown-input': isDropdownOpen,
               'dropdown-value': !isDropdownOpen,
             })} onClick={this.toggleDropdown}>
@@ -72,11 +70,11 @@ export class AutoCompleteDropdown extends React.Component {
             </div>
             {
               isDropdownOpen &&
-              <div className={cx("dropdown-list-body")}>
+              <div className={classNames("dropdown-list-body")}>
                 {
                   options
                     .map((option, i) =>
-                      <div key={`dropdown-${option.id || i}`} className={cx("dropdown-item")} onClick={() => this.handleClick(option)}>{option.name}</div>
+                      <div key={`dropdown-${option.id || i}`} className={classNames("dropdown-item")} onClick={() => this.handleClick(option)}>{option.name}</div>
                     )
                 }
               </div>

@@ -1,0 +1,51 @@
+@import '../imports.scss';
+
+@mixin cm-header {
+  .cm-header1.edit {
+    @include heading-font($h1-text, $w6-text);
+    padding: 4px 2px;
+    @include editable-style;
+    @include text-wrapping;
+    line-height: 34px;
+    strong{
+      font-weight: inherit !important;
+    }
+  }
+
+  .cm-header1.read {
+    @include heading-font($h1-text, $w6-text);
+    @include text-wrapping;
+    line-height: 34px;
+  }
+
+  .cm-header2.edit {
+    @include heading-font($h2-text, $w6-text);
+    padding: 4px 2px;
+    @include editable-style;
+    @include text-wrapping;
+    line-height: 28px;
+    strong{
+      font-weight: inherit !important;
+    }
+  }
+
+  .cm-header2.read {
+    @include heading-font($h2-text, $w6-text);
+    @include text-wrapping;
+    line-height: 28px;
+  }
+
+  .cm-header3.edit {
+    @include heading-font($h3-text, $w6-text);
+    margin: 2px 0;
+    padding: 4px 2px;
+    @include editable-style;
+    @include text-wrapping;
+  }
+
+  .cm-header3.read {
+    @include heading-font($h3-text, $w6-text);
+    margin: 2px 0;
+    @include text-wrapping;
+  }
+}

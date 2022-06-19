@@ -6,9 +6,7 @@ import {
   updateComponent,
 } from '../redux/reducers/appDataReducers'
 import Select from './Select';
-import styles from "./../styles/Code.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 
 
 const SUPPORTED_LANGUAGES = [
@@ -219,7 +217,7 @@ class CodeBlock extends React.Component {
 
     return (
       <div
-        className={cx("cm-code-block", context.status.toLowerCase())}
+        className={classNames("cm-code-block", context.status.toLowerCase())}
         onClick={() => {
           this.highlighterNode.focus()
         }}
@@ -227,7 +225,7 @@ class CodeBlock extends React.Component {
           e.stopPropagation()
         }}
       >
-        <pre className={cx('hljs')}>
+        <pre className={classNames('hljs')}>
           <code>
             <div
               style={{ width: '100%' }}
@@ -250,7 +248,7 @@ class CodeBlock extends React.Component {
           <Select
             value={selectedLang}
             onSelect={this.handleLangChange}
-            containerClassname={cx("language-selector")}
+            containerclassName={classNames("language-selector")}
             showArrow
           >
             {

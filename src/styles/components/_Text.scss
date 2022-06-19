@@ -1,0 +1,38 @@
+@import "../imports";
+
+@mixin cm-text {
+  .cm-text-block.edit {
+    color: $primary-color;
+    font-size: $t6-text;
+    line-height: 24px;
+    margin: 2px 0;
+    padding: 4px 2px;
+    @include text-wrapping;
+    @include editable-style;
+    font-family: "Open Sans", sans-serif !important;
+    p {
+      margin: 0px;
+    }
+    // background-color: transparent;
+    // transition: background-color .3s linear;
+    // &:hover {
+    //   background-color: $gray-bg;
+    // }
+    // &::placeholder  {
+    //   color: transparent !important;
+    // }
+    // &:focus {
+    //   background-color: transparent;
+    // }
+  }
+
+  .cm-text-block.read {
+    color: $primary-color;
+    font-size: $t6-text;
+    margin: 2px 0;
+    padding: 4px 2px;
+    line-height: 24px;
+    @include text-wrapping;
+    font-family: "Open Sans", sans-serif !important;
+  }
+}

@@ -1,7 +1,5 @@
 import React from 'react'
-import styles from "./../styles/Select.module.css"
-import classNames from "classnames/bind";
-const cx = classNames.bind(styles);
+import classNames from "classnames";
 
 class SelectNew extends React.Component {
   constructor(props) {
@@ -209,19 +207,19 @@ class SelectNew extends React.Component {
 
     return (
       <div
-        className={cx('cm-select-container', containerClassname)}
+        className={classNames('cm-select-container', containerClassname)}
         style={containerStyle}
         onKeyDownCapture={this.handleNavigation}
         ref={node => this.node = node}
       >
-        <div className={cx("cm-select-body")}>
+        <div className={classNames("cm-select-body")}>
           {
             [
               React.isValidElement(initialValue) || !showSearch
                 ?
                 <div
                   ref={node => this.inputNode = node}
-                  className={cx(
+                  className={classNames(
                     "search-input",
                     searchInputClassname,
                     {
@@ -240,7 +238,7 @@ class SelectNew extends React.Component {
                 <input
                   ref={node => this.inputNode = node}
                   type="text"
-                  className={cx(
+                  className={classNames(
                     "search-input",
                     searchInputClassname,
                     {
@@ -257,13 +255,13 @@ class SelectNew extends React.Component {
                   key="cm-select-input"
                   {...(!showSearch ? { readOnly: true } : {})}
                 />,
-              showSearchIcon && <span key="cm-select-showSearchIcon"> <i className={cx("cm", "cm-search", "search-icon")}> </i> </span>,
-              showArrow && <span key="cm-select-showArrow"> <i className={cx(`cm-icon-cm-icon-arrow-${showDropdown ? 'up' : 'down'}`, "arrow-icon")}> </i> </span>
+              showSearchIcon && <span key="cm-select-showSearchIcon"> <i className={classNames("cm", "cm-search", "search-icon")}> </i> </span>,
+              showArrow && <span key="cm-select-showArrow"> <i className={classNames(`cm-icon-cm-icon-arrow-${showDropdown ? 'up' : 'down'}`, "arrow-icon")}> </i> </span>
             ]
           }
           {
             showDropdown &&
-            <div className={cx("cm-select-options")} ref={node => this.scrollableDiv = node}>
+            <div className={classNames("cm-select-options")} ref={node => this.scrollableDiv = node}>
               {this.getChildren()}
             </div>
           }
@@ -291,7 +289,7 @@ const Option = (props) => {
   let isFocused = currentPosition === position
   return (
     <div
-      className={cx("cm-option-item", { 'hover': isFocused })}
+      className={classNames("cm-option-item", { 'hover': isFocused })}
       onClick={handleSelect.bind(this, dataProp || value)}
       onMouseEnter={(e) => handleMouseEnter(e, position)}
       onMouseLeave={(e) => handleMouseLeave(e, position)}

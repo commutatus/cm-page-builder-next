@@ -63,7 +63,7 @@ typings/
 # next.js build output
 .next
 
-#css 
+#css
 src/**/*.css
 
 #npm packages version definitions
