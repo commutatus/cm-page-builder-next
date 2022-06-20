@@ -41,7 +41,7 @@ class PageContainer extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.meta && (!this.props.meta || `${newProps.meta.id}` === `${this.props.meta.id}`)) {
+    if (newProps.meta && (!this.props.meta || `${newProps.meta.id}` !== `${this.props.meta.id}`)) {
       this.initWindowVar(newProps);
       this.initApp(newProps);
     }
