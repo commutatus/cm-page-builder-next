@@ -66,9 +66,9 @@ class DragHandle extends React.Component {
           onMouseUp={(e) => e.stopPropagation()}
           onClick={(e) => { e.stopPropagation(); this.props.removeComponent({ blockId: this.props.id }) }}
         >
-          <i className={classNames("cm-icon-trash")} />
+          <i className={classNames("fa-light fa-trash-can")} />
         </div>
-        <span className={classNames("handle-icon")}><i className={classNames("cm cm-icon-handle")} /></span>
+        <span className={classNames("handle-icon")}><i className={classNames("fa-regular fa-grip-dots-vertical")} /></span>
         <CSSTransition
           in={this.state.showMoreOptions}
           timeout={300}
@@ -80,7 +80,7 @@ class DragHandle extends React.Component {
               this.state.showMoreOptions &&
               <div className={classNames("showmore-popup")} onClick={this.handleClick}>
                 <div data-action="delete" className={classNames("more-option")}>
-                  <span><i className={classNames("cm-icon-trash")} /></span>
+                  <span><i className={classNames("fa-light fa-trash-can")} /></span>
                   <span>Delete</span>
                 </div>
               </div>
