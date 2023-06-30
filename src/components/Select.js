@@ -255,8 +255,8 @@ class SelectNew extends React.Component {
                   key="cm-select-input"
                   {...(!showSearch ? { readOnly: true } : {})}
                 />,
-              showSearchIcon && <span key="cm-select-showSearchIcon"> <i className={classNames("cm", "cm-search", "search-icon")}> </i> </span>,
-              showArrow && <span key="cm-select-showArrow"> <i className={classNames(`cm-icon-cm-icon-arrow-${showDropdown ? 'up' : 'down'}`, "arrow-icon")}> </i> </span>
+              showSearchIcon && <span key="cm-select-showSearchIcon"> <i className={classNames("fa-regular fa-magnifying-glass", "search-icon")}> </i> </span>,
+              showArrow && <span key="cm-select-showArrow"> <i className={classNames(`fa-regular chevron-${showDropdown ? 'up' : 'down'}`, "arrow-icon")}> </i> </span>
             ]
           }
           {
