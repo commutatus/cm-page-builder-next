@@ -236,9 +236,9 @@ function updateComponentTypeState(state, data) {
 }
 
 function updateComponentState(state, data) {
-  let { componentData } = state;
-  let { newState, id } = data;
-  componentData = componentData.map((component) => {
+  const { componentData } = state;
+  let { newState, id, emitOnly } = data;
+  const newComponentData = componentData.map((component) => {
     if (component.id === id) {
       return {
         ...component,
@@ -250,7 +250,7 @@ function updateComponentState(state, data) {
     }
   });
   emitUpdate({ id, ...newState }, "update");
-  return { componentData };
+  return emitOnly ? state : { componentData: newComponentData};
 }
 
 function removeComponentFromState(state, data) {
